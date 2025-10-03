@@ -1,9 +1,9 @@
-@import 'abstracts/variables';
+@use 'abstracts/variables' as *;
 
-@import 'base/typography';
+@use 'base/typography' as *;
 
-@import 'themes/light';
-@import 'themes/dark';
+@use 'themes/light' as light;
+@use 'themes/dark' as dark;
 
 body {
   background-color: var(--bg-base);

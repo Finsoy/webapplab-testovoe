@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { ConfigProvider, theme as antdTheme } from 'antd';
-import { useThemeStore } from '@store';
+import { useThemeStore } from '@/store';
 
 interface AntdConfigProviderProps {
   children: ReactNode;
