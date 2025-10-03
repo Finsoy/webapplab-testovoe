@@ -14,7 +14,8 @@
       "@/*": ["./src/*"],
       "@/app/*": ["src/app/*"],
       "@/pages/*": ["src/pages/*"],
-      "@/store/*": ["src/store/*"]
+      "@/store/*": ["src/store/*"],
+      "@/shared/*": ["src/shared/*"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
