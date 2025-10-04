@@ -1,5 +1,5 @@
 import { HeartFillIcon } from '@/shared/assets/icons';
-import { HeartUnfilledIcon } from '@/shared/assets/icons/HeartUnfilledIcon';
+import { HeartUnfilledIcon } from '@/shared/assets/icons';
 import { FC, useState } from 'react';
 import styles from './Favorite.module.scss';
 

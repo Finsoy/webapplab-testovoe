@@ -15,7 +15,20 @@ export const AntdConfigProvider: FC<AntdConfigProviderProps> = ({ children }) =>
       theme={{
         token: {
           fontFamily: 'Inter, sans-serif',
-          colorPrimary: 'var(--color-primary)',
+          colorPrimary: 'var(--accent)',
+          colorText: 'var(--text-primary)',
+        },
+        components: {
+          Select: {
+            colorBorder: 'transparent',
+            activeBorderColor: 'transparent',
+            activeOutlineColor: 'transparent',
+            hoverBorderColor: 'transparent',
+            selectorBg: 'var(--control)',
+            optionActiveBg: 'var(--control-hover)',
+            optionSelectedBg: 'transparent',
+            optionSelectedColor: 'var(--text-primary)',
+          },
         },
         algorithm: theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
       }}
