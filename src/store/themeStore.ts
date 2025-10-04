@@ -1,17 +1,18 @@
+import { Theme } from '@/shared/constants';
 import { create } from 'zustand';
 
-type Theme = 'light' | 'dark';
+type ThemeType = 'light' | 'dark';
 
 interface ThemeState {
-  theme: Theme;
+  theme: ThemeType;
   toggleTheme: () => void;
 }
 
 export const useThemeStore = create<ThemeState>((set) => ({
-  theme: 'light',
+  theme: Theme.LIGHT,
   toggleTheme: () =>
     set((state) => {
-      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      const newTheme = state.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
       document.documentElement.setAttribute('data-theme', newTheme);
       return { theme: newTheme };
     }),
