@@ -1,7 +1,9 @@
 import { Button, Favorite, Select } from '@/shared/ui-kit';
 import { ThemeSwitcher } from '@/shared/ui-kit/ThemeSwitcher';
+import { useState } from 'react';
 
 function App() {
+  const [value, setValue] = useState<string | null>(null);
   return (
     <>
       <h1>Vite + React</h1>
@@ -9,8 +11,9 @@ function App() {
       <ThemeSwitcher />
       <Favorite isFilled={false} />
       <Select
-        className="POPOPOPO"
         placeholder="Категория"
+        value={value}
+        onChange={setValue}
         options={[
           { value: 'Автотовары', label: 'Автотовары' },
           { value: 'Дом и сад', label: 'Дом и сад' },

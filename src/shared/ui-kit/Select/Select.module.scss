@@ -14,7 +14,7 @@
   }
 
   .ant-select-selector {
-    border-radius: 10px;
+    border-radius: 18px !important;
 
     &:hover {
       background-color: var(--control-hover) !important;
@@ -50,6 +50,23 @@
 
 .select {
   color: var(--text-primary) !important;
+
+  &_active {
+    color: var(--text-inverted) !important;
+    :global {
+      .ant-select-selector {
+        background-color: var(--accent) !important;
+      }
+
+      .ant-select-selection-item {
+        color: var(--text-inverted) !important;
+      }
+
+      .ant-select-arrow svg path {
+        stroke: var(--text-inverted);
+      }
+    }
+  }
 }
 
 .arrow {

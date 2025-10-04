@@ -1,14 +1,14 @@
 import { Select as SelectAntd, type SelectProps } from 'antd';
 import { FC, useState } from 'react';
+import cx from 'classnames';
 
 import styles from './Select.module.scss';
 import { SelectedArrowIcon, CheckmarkIcon } from '@/shared/assets/icons';
 
 type ISelectProps = Omit<SelectProps, 'open' | 'onOpenChange' | 'onSelect'>;
 
-export const Select: FC<ISelectProps> = ({ className, ...props }) => {
+export const Select: FC<ISelectProps> = ({ className, value, onChange, ...props }) => {
   const [open, setOpen] = useState(props.defaultOpen || false);
-  const [value, setValue] = useState<string | null>(props.value || null);
 
   const menuItemSelectedIcon = props.menuItemSelectedIcon || <CheckmarkIcon />;
   const suffixIcon = props.suffixIcon || (
@@ -17,9 +17,10 @@ export const Select: FC<ISelectProps> = ({ className, ...props }) => {
 
   const handleSelect = (val: string | null) => {
     if (val === value) {
-      return setValue(null);
+      onChange?.(null);
+      return;
     }
-    setValue(val);
+    onChange?.(val);
   };
 
   return (
@@ -27,8 +28,11 @@ export const Select: FC<ISelectProps> = ({ className, ...props }) => {
       {...props}
       open={open}
       value={value}
-      className={`${styles.select} ${className}`}
+      className={cx(styles.select, className, {
+        [styles.select_active]: !!value,
+      })}
       onOpenChange={(visible) => setOpen(visible)}
+      onChange={onChange}
       onSelect={handleSelect}
       menuItemSelectedIcon={menuItemSelectedIcon}
       suffixIcon={suffixIcon}
