@@ -2,7 +2,7 @@ import { InputProps } from 'antd';
 
 import { Input } from '@/shared/ui-kit';
 import { ChangeEvent, FC, useTransition } from 'react';
-import { SeacrhIcon } from '@/shared/assets/icons/SeacrhIcon';
+import { SeacrhIcon } from '@/shared/assets/icons';
 import { useSearchParams } from 'react-router';
 
 import styles from './Search.module.scss';
