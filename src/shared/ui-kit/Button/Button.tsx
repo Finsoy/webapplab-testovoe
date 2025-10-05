@@ -4,9 +4,7 @@ import cx from 'classnames';
 
 import styles from './Button.module.scss';
 
-interface IButtonProps extends ButtonProps { }
-
-export const Button: FCC<IButtonProps> = ({ children, ...props }) => {
+export const Button: FCC<ButtonProps> = ({ children, ...props }) => {
   return (
     <ButtonAntd {...props} type="primary" className={cx(styles.button)}>
       {children}

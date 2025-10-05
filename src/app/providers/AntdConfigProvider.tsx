@@ -8,7 +8,6 @@ interface AntdConfigProviderProps {
 
 export const AntdConfigProvider: FC<AntdConfigProviderProps> = ({ children }) => {
   const { theme } = useThemeStore();
-  console.log('🚀 ~ AntdConfigProvider ~ theme:', theme);
 
   return (
     <ConfigProvider

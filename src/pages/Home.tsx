@@ -1,13 +1,17 @@
+import { SelectedArrowIcon } from '@/shared/assets/icons';
 import { Button, Favorite, Select } from '@/shared/ui-kit';
 import { ThemeSwitcher } from '@/shared/ui-kit/ThemeSwitcher';
+import { Search } from '@/widgets';
 import { useState } from 'react';
 
-function App() {
+export const Home = () => {
   const [value, setValue] = useState<string | null>(null);
   return (
     <>
       <h1>Vite + React</h1>
-      <Button>Primary button</Button>
+      <Button icon={<SelectedArrowIcon />} iconPosition="end">
+        Primary button
+      </Button>
       <ThemeSwitcher />
       <Favorite isFilled={false} />
       <Select
@@ -21,8 +25,7 @@ function App() {
           { value: 'Одежда', label: 'Одежда' },
         ]}
       />
+      <Search />
     </>
   );
-}
-
-export default App;
+};

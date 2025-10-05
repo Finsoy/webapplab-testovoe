@@ -1,0 +1,29 @@
+.input {
+  padding: 12px 13px;
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  background-color: var(--control);
+
+  span {
+    margin-inline-end: 8px !important;
+  }
+
+  &:hover {
+    background-color: var(--control-hover);
+    border: none;
+    border: 1px solid transparent;
+  }
+
+  &:focus-within {
+    box-shadow: none;
+    background-color: var(--bg-base);
+    border: 1px solid var(--stroke-field-default);
+  }
+
+  input::placeholder {
+    color: var(--text-primary);
+  }
+}
