@@ -14,7 +14,6 @@ export const AntdConfigProvider: FC<AntdConfigProviderProps> = ({ children }) =>
       theme={{
         token: {
           fontFamily: 'Inter, sans-serif',
-          // colorPrimary: 'var(--accent)',
           colorText: 'var(--text-primary)',
         },
         components: {

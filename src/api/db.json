@@ -1,0 +1,54 @@
+{
+  "category": [
+    {
+      "label": "Автотовары",
+      "value": "auto"
+    },
+    {
+      "label": "Аксессуары",
+      "value": "accessories"
+    },
+    {
+      "label": "Дом и сад",
+      "value": "home_and_garden"
+    },
+    {
+      "label": "Обувь",
+      "value": "shoes"
+    },
+    {
+      "label": "Одежда",
+      "value": "clothes"
+    },
+    {
+      "label": "Техника",
+      "value": "tech"
+    },
+    {
+      "label": "Туризм",
+      "value": "tourism"
+    }
+  ],
+  "city": [
+    {
+      "label": "Москва",
+      "value": "moscow"
+    },
+    {
+      "label": "Санкт-Петербург",
+      "value": "saint_petersburg"
+    },
+    {
+      "label": "Саратов",
+      "value": "saratov"
+    },
+    {
+      "label": "Тверь",
+      "value": "tver"
+    },
+    {
+      "label": "Уфа",
+      "value": "ufa"
+    }
+  ]
+}

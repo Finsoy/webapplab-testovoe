@@ -8,11 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "mock": "npx json-server --watch ./src/api/db.json --port 3001"
   },
   "dependencies": {
     "antd": "^5.27.4",
+    "axios": "^1.12.2",
     "classnames": "^2.5.1",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.9.3",
