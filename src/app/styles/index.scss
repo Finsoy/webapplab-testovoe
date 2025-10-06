@@ -18,5 +18,15 @@ body {
 #root {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-height: 100dvh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: fit-content;
 }

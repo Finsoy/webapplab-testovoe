@@ -50,5 +50,15 @@
       "label": "Уфа",
       "value": "ufa"
     }
+  ],
+  "sort": [
+    {
+      "label": "По алфавиту",
+      "value": "default"
+    },
+    {
+      "label": "По популярности",
+      "value": "popular"
+    }
   ]
 }

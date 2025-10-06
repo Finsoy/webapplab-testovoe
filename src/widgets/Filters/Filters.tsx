@@ -2,12 +2,14 @@ import { useGetFiters } from './hooks';
 import { FILTERS } from './constants';
 import { FilterItem } from './FilterItem';
 
+import styles from './Filters.module.scss';
+
 export const Filters = () => {
   const { filters, handleChangeFilter } = useGetFiters();
   console.log('🚀 ~ filters:', filters);
 
   return (
-    <section>
+    <section className={styles.filters}>
       {FILTERS.map(({ name, placeholder }) => (
         <FilterItem
           key={name}

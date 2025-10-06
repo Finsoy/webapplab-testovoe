@@ -7,11 +7,13 @@ import styles from './Layout.module.scss';
 
 export const Layout = () => {
   return (
-    <div className={styles.container}>
-      <Header />
-      <Filters />
-      <Outlet />
+    <>
+      <div className={styles.container}>
+        <Header />
+        <Filters />
+        <Outlet />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
