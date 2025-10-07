@@ -4,7 +4,7 @@ import { useGetInitialFilters } from './useGetInitialFilters';
 import { useSetUrlParams } from '@/shared/hooks';
 import { Nullable } from '@/shared/types';
 
-export const useGetFiters = () => {
+export const useGetFilters = () => {
   const filters = useGetInitialFilters();
   const { handleChange } = useSetUrlParams();
 

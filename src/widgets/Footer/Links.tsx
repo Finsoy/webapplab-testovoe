@@ -2,20 +2,24 @@ import { FC } from 'react';
 import cx from 'classnames';
 
 import styles from './Footer.module.scss';
+import { IOption } from '@/api/filters';
+import { Nullable } from '@/shared/types';
 
 interface ILinks {
-  links: string[];
+  links: IOption[];
   title: string;
   className?: string;
+  onClick?: (value: Nullable<string>, parameter?: string) => void;
+  param?: string;
 }
 
-export const Links: FC<ILinks> = ({ links, title, className }) => {
+export const Links: FC<ILinks> = ({ links, title, className, onClick, param }) => {
   return (
     <div className={cx(styles.links_link, className)}>
       <h3 className={styles.links_title}>{title}</h3>
       <ul className={styles.links_link_list}>
         {links.map((link) => (
-          <li>{link}</li>
+          <li onClick={() => onClick?.(link.value, param)}>{link.label}</li>
         ))}
       </ul>
     </div>
