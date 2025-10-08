@@ -7,7 +7,7 @@ interface IFavoriteProps {
   /**
    * If true, renders the filled heart by default; otherwise outline until hover.
    */
-  isFilled: boolean;
+  isFilled?: boolean;
 }
 
 export const Favorite: FC<IFavoriteProps> = ({ isFilled }) => {

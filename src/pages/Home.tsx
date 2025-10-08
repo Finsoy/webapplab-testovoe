@@ -1,3 +1,9 @@
+import { CardList } from '@/widgets/CardList';
+
 export const Home = () => {
-  return <main>Main</main>;
+  return (
+    <main>
+      <CardList />
+    </main>
+  );
 };

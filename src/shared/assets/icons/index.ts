@@ -4,5 +4,6 @@ export { SelectedArrowIcon } from './SelectedArrowIcon';
 export { CheckmarkIcon } from './CheckmarkIcon';
 export { SeacrhIcon } from './SeacrhIcon';
 export { UserIcon } from './UserIcon';
-export { WhatsAppIcon } from './WhatsappIcon';
+export { WhatsAppIcon } from './WhatsAppIcon';
 export { PhoneIcon } from './PhoneIcon';
+export { StarIcon } from './StarIcon';
