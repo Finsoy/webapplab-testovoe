@@ -6,7 +6,6 @@ import styles from './Filters.module.scss';
 
 export const Filters = () => {
   const { filters, handleChangeFilter } = useGetFiters();
-  console.log('🚀 ~ filters:', filters);
 
   return (
     <section className={styles.filters}>

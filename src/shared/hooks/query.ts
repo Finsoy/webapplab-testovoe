@@ -30,7 +30,7 @@ export const useSetUrlParams = <T extends string = string>(payload?: IUseUrlPara
         currentParams.delete(key);
       }
 
-      setSearchParams(currentParams);
+      setSearchParams(currentParams, { replace: true });
     },
     [param, searchParams, setSearchParams],
   );

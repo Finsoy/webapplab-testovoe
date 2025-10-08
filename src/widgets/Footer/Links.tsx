@@ -1,15 +1,15 @@
 import { FC } from 'react';
 import cx from 'classnames';
-
-import styles from './Footer.module.scss';
 import { IOption } from '@/api/filters';
 import { Nullable } from '@/shared/types';
+
+import styles from './Footer.module.scss';
 
 interface ILinks {
   links: IOption[];
   title: string;
   className?: string;
-  onClick?: (value: Nullable<string>, parameter?: string) => void;
+  onClick?: (value: Nullable<string>, param?: string) => void;
   param?: string;
 }
 

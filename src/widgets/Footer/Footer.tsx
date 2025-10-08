@@ -5,6 +5,21 @@ import { Contacts } from './Contacts';
 import styles from './Footer.module.scss';
 import { Links } from './Links';
 
+const usefulLinks = [
+  {
+    label: 'О компании',
+    value: 'about',
+  },
+  {
+    label: 'Документы',
+    value: 'documents',
+  },
+  {
+    label: 'Частые вопросы',
+    value: 'FAQ',
+  },
+];
+
 export const Footer = () => {
   const categories = useGetOptions('category');
 
@@ -22,7 +37,7 @@ export const Footer = () => {
             param="category"
             className={styles.links_categories}
           />
-          <Links links={categories} title="Полезно" className={styles.links_useful} />
+          <Links links={usefulLinks} title="Полезно" className={styles.links_useful} />
         </div>
       </div>
       <div className={styles.footer_rights}>© 2025 Все права защищены</div>
