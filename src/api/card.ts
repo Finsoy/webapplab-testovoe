@@ -1,12 +1,13 @@
-import { ICard } from '@/entities/card';
 import { api } from './axios';
 import { Nullable } from '@/shared/types';
+import { ICardResponse } from '@/entities/card';
 
 interface IGetCardsProps {
   sort: Nullable<string>;
   city: Nullable<string>;
   category: Nullable<string>;
   search: Nullable<string>;
+  page: number;
 }
 
 export const getCards = async ({
@@ -14,8 +15,11 @@ export const getCards = async ({
   city,
   category,
   search,
-}: IGetCardsProps): Promise<ICard[]> => {
+  page,
+}: IGetCardsProps): Promise<ICardResponse> => {
   const params = new URLSearchParams();
+
+  params.append('_page', String(page));
 
   if (city) params.append('city', city);
   if (category) params.append('category', category);
@@ -28,6 +32,8 @@ export const getCards = async ({
     const parsedField = order === 'desc' ? `-${field}` : field;
     params.append('_sort', parsedField);
   }
+
+  params.append('_per_page', '15');
 
   const url = `cards?${params.toString()}`;
   const res = await api.get(url);
