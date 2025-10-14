@@ -7,3 +7,4 @@ export { UserIcon } from './UserIcon';
 export { WhatsAppIcon } from './WhatsAppIcon';
 export { PhoneIcon } from './PhoneIcon';
 export { StarIcon } from './StarIcon';
+export { CloseIcon } from './CloseIcon';

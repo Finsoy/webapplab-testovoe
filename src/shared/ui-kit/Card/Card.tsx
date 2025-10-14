@@ -12,9 +12,20 @@ export interface ICardProps {
   category: string;
   city: string;
   rating: number;
+  onClick?: () => void;
+  description?: string;
 }
 
-export const Card: FC<ICardProps> = ({ logo, icon, isFavorite, title, category, city, rating }) => {
+export const Card: FC<ICardProps> = ({
+  logo,
+  icon,
+  isFavorite,
+  title,
+  category,
+  city,
+  rating,
+  onClick,
+}) => {
   return (
     <div className={styles.card}>
       <div className={styles.card_image}>
@@ -34,7 +45,7 @@ export const Card: FC<ICardProps> = ({ logo, icon, isFavorite, title, category, 
           </div>
         </div>
 
-        <div role="button" className={styles.card_button}>
+        <div role="button" className={styles.card_button} onClick={onClick}>
           Подробнее
         </div>
       </div>

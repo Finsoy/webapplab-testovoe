@@ -1,1 +1,1 @@
-export { ICard, ICardResponse } from './types';
+export type { ICard, ICardResponse } from './types';

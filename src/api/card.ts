@@ -27,6 +27,8 @@ export const getCards = async ({
   // search only works with exact matches TITLE
   if (search) params.append('title', search);
 
+  // params.append('isFavorite', 'true');
+
   if (sort) {
     const [field, order] = sort.split('_');
     const parsedField = order === 'desc' ? `-${field}` : field;

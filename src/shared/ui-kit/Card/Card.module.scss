@@ -5,6 +5,13 @@
   background: var(--bg-base);
   border: 1px solid var(--card-border);
 
+  transition: border 0.2s linear;
+
+  &:hover {
+    border: 1px solid var(--accent);
+    cursor: pointer;
+  }
+
   &_favorite {
     position: absolute;
     top: 14px;

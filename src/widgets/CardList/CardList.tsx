@@ -1,9 +1,10 @@
-import { Button, Card } from '@/shared/ui-kit';
+import { Button } from '@/shared/ui-kit';
 import { useCards } from './hook';
 
 import styles from './CardList.module.scss';
 import { useState } from 'react';
 import { SelectedArrowIcon } from '@/shared/assets/icons';
+import { DrawerCardWrapper } from '../DrawerCard';
 
 export const CardList = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +20,7 @@ export const CardList = () => {
     <div className={styles.wrapper}>
       <div className={styles.card_list}>
         {cards?.map(({ id, ...card }) => {
-          return <Card key={id} {...card} />;
+          return <DrawerCardWrapper key={id} {...card} />;
         })}
       </div>
 
