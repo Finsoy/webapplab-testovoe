@@ -13,7 +13,6 @@ export const Drawer: FCC<DrawerProps> = ({ children, ...props }) => {
       classNames={{ mask: styles.mask, wrapper: styles.wrapper }}
       closeIcon={<MoonIcon />}
       width={490}
-      // drawerRender={(node) => children}
       {...props}
     >
       {children}

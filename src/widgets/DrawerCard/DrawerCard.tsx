@@ -1,4 +1,4 @@
-import { CloseIcon, HeartFillIcon, HeartUnfilledIcon, StarIcon } from '@/shared/assets/icons';
+import { CloseIcon, StarIcon } from '@/shared/assets/icons';
 import styles from './DrawerCard.module.scss';
 import { FC } from 'react';
 import { CardIcon } from '@/shared/ui-kit/Card/CardIcon';
@@ -19,6 +19,7 @@ export const DrawerCard: FC<IDrawerCardProps> = ({
   title,
   isFavorite,
   description,
+  handleIsFavorite,
 }) => {
   const paragraphs = description?.split(/\n+/);
 
@@ -44,11 +45,17 @@ export const DrawerCard: FC<IDrawerCardProps> = ({
             <span>{category}</span>
             <span>{city}</span>
           </div>
-          {paragraphs?.map((par) => (
-            <p className={styles.description}>{par}</p>
+          {paragraphs?.map((par, index) => (
+            <p key={index} className={styles.description}>
+              {par}
+            </p>
           ))}
         </div>
-        <Button iconPosition="start" icon={<Favorite isFilled={isFavorite} ghost />}>
+        <Button
+          iconPosition="start"
+          icon={<Favorite isFilled={isFavorite} ghost />}
+          onClick={handleIsFavorite}
+        >
           Добавить в избранное
         </Button>
       </div>

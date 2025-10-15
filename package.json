@@ -12,6 +12,7 @@
     "mock": "npx json-server --watch ./src/api/db.json --port 3001"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.3",
     "antd": "^5.27.4",
     "axios": "^1.12.2",
     "classnames": "^2.5.1",

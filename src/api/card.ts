@@ -41,3 +41,9 @@ export const getCards = async ({
   const res = await api.get(url);
   return res.data;
 };
+
+export const updateCradFavorite = async (id: number, payload: { isFavorite: boolean }) => {
+  const res = await api.patch(`cards/${id}`, payload);
+  console.log('🚀 ~ updateCradFavorite ~ res:', res);
+  return res;
+};

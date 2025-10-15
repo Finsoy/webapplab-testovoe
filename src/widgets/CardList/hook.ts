@@ -1,34 +1,35 @@
 import { getCards } from '@/api/card';
-import { ICard } from '@/entities/card';
 import { useGetUrlParams } from '@/shared/hooks';
-import { useEffect, useState } from 'react';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 export const useCards = () => {
-  const [cards, setCards] = useState<ICard[]>([]);
-  const [isNext, setIsNext] = useState(false);
-
   const { category, city, sort, search } = useGetUrlParams({
     params: ['sort', 'category', 'city', 'search'],
   });
 
-  const fetchCards = async (page: number, isInitial?: boolean) => {
-    const { next, data } = await getCards({ category, city, search, sort, page });
+  const { data, isLoading, error, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } =
+    useInfiniteQuery({
+      queryKey: ['cards', { sort, city, category, search }],
+      queryFn: ({ pageParam = 1 }) => getCards({ sort, city, category, search, page: pageParam }),
+      getNextPageParam: (lastPage) => lastPage.next,
+      initialPageParam: 1,
+    });
 
-    if (isInitial) {
-      setCards(data);
-    } else {
-      setCards((prev) => [...prev, ...data]);
+  const cards = data?.pages.flatMap((page) => page.data) ?? [];
+
+  const fetchNext = () => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
     }
-    setIsNext(!!next);
   };
-
-  useEffect(() => {
-    fetchCards(1, true);
-  }, [category, city, search, sort]);
 
   return {
     cards,
-    isNext,
-    fetchCards,
+    hasNextPage,
+    fetchNext,
+    isLoading,
+    error,
+    isFetchingNextPage,
+    refetch,
   };
 };

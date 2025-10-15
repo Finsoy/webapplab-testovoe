@@ -3,17 +3,11 @@ import { Favorite } from '../Favorite';
 import styles from './Card.module.scss';
 import { CardIcon } from './CardIcon';
 import { StarIcon } from '@/shared/assets/icons';
+import { ICard } from '@/entities/card';
 
-export interface ICardProps {
-  logo: string;
-  icon: string;
-  isFavorite?: boolean;
-  title: string;
-  category: string;
-  city: string;
-  rating: number;
+export interface ICardProps extends ICard {
   onClick?: () => void;
-  description?: string;
+  handleIsFavorite: () => void;
 }
 
 export const Card: FC<ICardProps> = ({
@@ -25,6 +19,7 @@ export const Card: FC<ICardProps> = ({
   city,
   rating,
   onClick,
+  handleIsFavorite,
 }) => {
   return (
     <div className={styles.card}>
@@ -50,7 +45,7 @@ export const Card: FC<ICardProps> = ({
         </div>
       </div>
 
-      <div className={styles.card_favorite}>
+      <div className={styles.card_favorite} onClick={handleIsFavorite}>
         <Favorite isFilled={isFavorite} />
       </div>
     </div>

@@ -1,11 +1,18 @@
 import { Nullable } from '@/shared/types';
-import { ICardProps } from '@/shared/ui-kit/Card';
 
 export interface ICardResponse {
   data: ICard[];
   next: Nullable<number>;
 }
 
-export interface ICard extends ICardProps {
+export interface ICard {
   id: number;
+  logo: string;
+  icon: string;
+  isFavorite?: boolean;
+  title: string;
+  category: string;
+  city: string;
+  rating: number;
+  description?: string;
 }

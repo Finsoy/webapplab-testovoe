@@ -19,7 +19,9 @@ export const Links: FC<ILinks> = ({ links, title, className, onClick, param }) =
       <h3 className={styles.links_title}>{title}</h3>
       <ul className={styles.links_link_list}>
         {links.map((link) => (
-          <li onClick={() => onClick?.(link.value, param)}>{link.label}</li>
+          <li key={link.value} onClick={() => onClick?.(link.value, param)}>
+            {link.label}
+          </li>
         ))}
       </ul>
     </div>
