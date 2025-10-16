@@ -1,18 +1,16 @@
-import { useState, useEffect } from 'react';
 import { TFilters } from '../types';
-import { getFitlerOptions, IOption } from '@/api/filters';
+import { getFitlerOptions } from '@/api/filters';
+import { useQuery } from '@tanstack/react-query';
 
 export const useGetOptions = (name: TFilters) => {
-  const [options, setOptions] = useState<IOption[]>([]);
+  const {
+    data: options,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: [name],
+    queryFn: () => getFitlerOptions(name),
+  });
 
-  useEffect(() => {
-    const fetchOptions = async () => {
-      const data = await getFitlerOptions(name);
-      setOptions(data);
-    };
-
-    fetchOptions();
-  }, [name]);
-
-  return options;
+  return { options, isLoading, error };
 };

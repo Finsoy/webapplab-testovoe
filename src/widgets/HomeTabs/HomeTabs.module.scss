@@ -1,0 +1,28 @@
+.tabs {
+  font-size: inherit !important;
+  line-height: inherit !important;
+
+  :global {
+    .ant-tabs-tab {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        color: var(--text-primary) !important;
+      }
+    }
+
+    .ant-tabs-tab-btn {
+      color: var(--text-secondary);
+    }
+
+    .ant-tabs-nav {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.tab_bar {
+  font-size: 26px;
+}

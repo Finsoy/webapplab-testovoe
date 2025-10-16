@@ -8,6 +8,7 @@ interface IGetCardsProps {
   category: Nullable<string>;
   search: Nullable<string>;
   page: number;
+  onlyFavorites?: boolean;
 }
 
 export const getCards = async ({
@@ -16,6 +17,7 @@ export const getCards = async ({
   category,
   search,
   page,
+  onlyFavorites,
 }: IGetCardsProps): Promise<ICardResponse> => {
   const params = new URLSearchParams();
 
@@ -27,7 +29,9 @@ export const getCards = async ({
   // search only works with exact matches TITLE
   if (search) params.append('title', search);
 
-  // params.append('isFavorite', 'true');
+  if (onlyFavorites) {
+    params.append('isFavorite', 'true');
+  }
 
   if (sort) {
     const [field, order] = sort.split('_');

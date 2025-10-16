@@ -2,15 +2,16 @@ import { getCards } from '@/api/card';
 import { useGetUrlParams } from '@/shared/hooks';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-export const useCards = () => {
+export const useCards = (onlyFavorites?: boolean) => {
   const { category, city, sort, search } = useGetUrlParams({
     params: ['sort', 'category', 'city', 'search'],
   });
 
   const { data, isLoading, error, fetchNextPage, hasNextPage, isFetchingNextPage, refetch } =
     useInfiniteQuery({
-      queryKey: ['cards', { sort, city, category, search }],
-      queryFn: ({ pageParam = 1 }) => getCards({ sort, city, category, search, page: pageParam }),
+      queryKey: ['cards', { sort, city, category, search, onlyFavorites }],
+      queryFn: ({ pageParam = 1 }) =>
+        getCards({ sort, city, category, search, page: pageParam, onlyFavorites }),
       getNextPageParam: (lastPage) => lastPage.next,
       initialPageParam: 1,
     });

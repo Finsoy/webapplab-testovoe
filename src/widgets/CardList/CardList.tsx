@@ -4,9 +4,14 @@ import { useCards } from './hook';
 import styles from './CardList.module.scss';
 import { SelectedArrowIcon } from '@/shared/assets/icons';
 import { DrawerCardWrapper } from '../DrawerCard';
+import { FC } from 'react';
 
-export const CardList = () => {
-  const { cards, hasNextPage, fetchNext, isLoading, isFetchingNextPage } = useCards();
+interface ICardListProps {
+  onlyFavorites?: boolean;
+}
+
+export const CardList: FC<ICardListProps> = ({ onlyFavorites }) => {
+  const { cards, hasNextPage, fetchNext, isLoading, isFetchingNextPage } = useCards(onlyFavorites);
 
   if (isLoading) {
     return <div>Loading...</div>;

@@ -35,8 +35,6 @@ export const useFavoriteMutation = () => {
         }
       });
 
-      console.log('222: ', queryClient.getQueriesData({ queryKey: ['cards'] }));
-
       return { previousData };
     },
     onError: (err, _, context) => {

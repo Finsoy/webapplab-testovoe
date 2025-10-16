@@ -12,13 +12,14 @@ interface IFilterItem {
 }
 
 export const FilterItem: FC<IFilterItem> = ({ value, name, handleChangeFilter, placeholder }) => {
-  const options = useGetOptions(name);
+  const { options, isLoading } = useGetOptions(name);
 
   return (
     <Select
       value={value}
       onChange={(v) => handleChangeFilter(v, name)}
       placeholder={placeholder}
+      loading={isLoading}
       options={options}
     />
   );

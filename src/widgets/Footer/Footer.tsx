@@ -21,22 +21,26 @@ const usefulLinks = [
 ];
 
 export const Footer = () => {
-  const categories = useGetOptions('category');
+  const { options: categories, isLoading } = useGetOptions('category');
 
   const { handleChange } = useSetUrlParams();
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_inner}>
         <Contacts />
         <div className={styles.links}>
-          <Links
-            links={categories}
-            onClick={handleChange}
-            title="Категории"
-            param="category"
-            className={styles.links_categories}
-          />
+          {categories && (
+            <Links
+              links={categories}
+              onClick={handleChange}
+              title="Категории"
+              param="category"
+              className={styles.links_categories}
+            />
+          )}
           <Links links={usefulLinks} title="Полезно" className={styles.links_useful} />
         </div>
       </div>
