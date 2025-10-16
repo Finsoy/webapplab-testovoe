@@ -9,7 +9,7 @@ export interface ICard {
   id: number;
   logo: string;
   icon: string;
-  isFavorite?: boolean;
+  isFavorite: boolean;
   title: string;
   category: string;
   city: string;

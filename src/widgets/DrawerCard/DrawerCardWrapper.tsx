@@ -2,14 +2,15 @@ import { Card, Drawer } from '@/shared/ui-kit';
 import { DrawerCard } from './DrawerCard';
 import { FC, useState } from 'react';
 import { ICardProps } from '@/shared/ui-kit/Card';
-import { updateCradFavorite } from '@/api/card';
+import { useFavoriteMutation } from './hook';
 
 export const DrawerCardWrapper: FC<Omit<ICardProps, 'onClick' | 'handleIsFavorite'>> = ({
   isFavorite,
   ...card
 }) => {
   const [open, setOpen] = useState(false);
-  const [favorite, setFavorite] = useState(isFavorite);
+  const { handleFavorite } = useFavoriteMutation();
+  // const [favorite, setFavorite] = useState(isFavorite);
 
   const showDrawer = () => {
     setOpen(true);
@@ -19,17 +20,21 @@ export const DrawerCardWrapper: FC<Omit<ICardProps, 'onClick' | 'handleIsFavorit
     setOpen(false);
   };
 
-  const handleIsFavorite = async () => {
-    const previousFavorite = favorite;
+  // const handleIsFavorite = async () => {
+  //   const previousFavorite = favorite;
 
-    try {
-      setFavorite((prev) => !prev);
-      await updateCradFavorite(card.id, { isFavorite: !favorite });
-    } catch (e) {
-      console.error(e);
-      setFavorite(previousFavorite);
-      throw new Error('Update isFavorite field went wrong, try again later...');
-    }
+  //   try {
+  //     setFavorite((prev) => !prev);
+  //     await updateCradFavorite({ id: card.id, isFavorite: !favorite });
+  //   } catch (e) {
+  //     console.error(e);
+  //     setFavorite(previousFavorite);
+  //     throw new Error('Update isFavorite field went wrong, try again later...');
+  //   }
+  // };
+
+  const handleIsFavorite = () => {
+    handleFavorite(card.id, !isFavorite);
   };
 
   return (
@@ -38,7 +43,7 @@ export const DrawerCardWrapper: FC<Omit<ICardProps, 'onClick' | 'handleIsFavorit
         {...card}
         onClick={showDrawer}
         handleIsFavorite={handleIsFavorite}
-        isFavorite={favorite}
+        isFavorite={isFavorite}
       />
       <Drawer
         onClose={closeDrawer}
@@ -49,7 +54,7 @@ export const DrawerCardWrapper: FC<Omit<ICardProps, 'onClick' | 'handleIsFavorit
             onClose={closeDrawer}
             {...card}
             handleIsFavorite={handleIsFavorite}
-            isFavorite={favorite}
+            isFavorite={isFavorite}
           />
         )}
       />
