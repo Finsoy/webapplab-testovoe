@@ -25,8 +25,6 @@ export const Footer = () => {
 
   const { handleChange } = useSetUrlParams();
 
-  if (isLoading) return <div>Loading...</div>;
-
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_inner}>
@@ -39,6 +37,7 @@ export const Footer = () => {
               title="Категории"
               param="category"
               className={styles.links_categories}
+              isLoading={isLoading}
             />
           )}
           <Links links={usefulLinks} title="Полезно" className={styles.links_useful} />
