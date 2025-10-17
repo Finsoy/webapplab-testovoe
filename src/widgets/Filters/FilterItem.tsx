@@ -3,6 +3,7 @@ import { Select } from '@/shared/ui-kit';
 import { TFilters } from './types';
 import { FC } from 'react';
 import { useGetOptions } from './hooks';
+import { Skeleton } from 'antd';
 
 interface IFilterItem {
   value: Nullable<string>;
@@ -14,12 +15,16 @@ interface IFilterItem {
 export const FilterItem: FC<IFilterItem> = ({ value, name, handleChangeFilter, placeholder }) => {
   const { options, isLoading } = useGetOptions(name);
 
+  if (isLoading) {
+    return <Skeleton.Input active style={{ borderRadius: 18 }} />;
+  }
+
   return (
     <Select
       value={value}
       onChange={(v) => handleChangeFilter(v, name)}
       placeholder={placeholder}
-      loading={isLoading}
+      loading={true}
       options={options}
     />
   );

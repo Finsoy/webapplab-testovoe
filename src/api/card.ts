@@ -42,6 +42,7 @@ export const getCards = async ({
   params.append('_per_page', '15');
 
   const url = `cards?${params.toString()}`;
+
   const res = await api.get(url);
   return res.data;
 };
@@ -49,8 +50,6 @@ export const getCards = async ({
 export const updateCradFavorite = async (data: { id: number; isFavorite: boolean }) => {
   const { id, ...payload } = data;
 
-  setTimeout(async () => {
-    const res = await api.patch(`cards/${id}`, payload);
-    return res;
-  }, 1500);
+  const res = await api.patch(`cards/${id}`, payload);
+  return res;
 };

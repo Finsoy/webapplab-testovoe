@@ -1,3 +1,5 @@
+@use '../../app/styles/abstracts/mixins' as *;
+
 .tabs {
   font-size: inherit !important;
   line-height: inherit !important;
@@ -6,6 +8,10 @@
     .ant-tabs-tab {
       font-size: 25px;
       font-weight: bold;
+
+      @include responsive(mobile) {
+        font-size: 20px;
+      }
     }
     .ant-tabs-tab-active {
       .ant-tabs-tab-btn {
@@ -21,8 +27,4 @@
       margin-bottom: 32px;
     }
   }
-}
-
-.tab_bar {
-  font-size: 26px;
 }
