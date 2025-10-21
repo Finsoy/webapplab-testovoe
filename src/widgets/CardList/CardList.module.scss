@@ -27,3 +27,24 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.empty_card_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+
+  margin: 0 auto;
+
+  max-width: 230px;
+
+  svg path {
+    color: var(--control-hover);
+  }
+
+  button {
+    margin-top: 12px;
+    width: fit-content;
+  }
+}
