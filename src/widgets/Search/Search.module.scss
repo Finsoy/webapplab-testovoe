@@ -1,3 +1,9 @@
+@use '../../app/styles/abstracts/mixins' as *;
+
 .search_icon {
   color: var(--accent);
+
+  @include responsive(mobile) {
+    justify-self: flex-end;
+  }
 }

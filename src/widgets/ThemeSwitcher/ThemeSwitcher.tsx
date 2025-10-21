@@ -12,9 +12,9 @@ export const ThemeSwitcher: FC = () => {
   return (
     <div className={styles.theme_switcher} onClick={toggleTheme}>
       {theme === Theme.LIGHT ? (
-        <MoonIcon width={24} height={24} className={styles.theme_switcher_icon} />
+        <MoonIcon width={20} height={20} className={styles.theme_switcher_icon} />
       ) : (
-        <SunIcon width={24} height={24} className={styles.theme_switcher_icon} />
+        <SunIcon width={20} height={20} className={styles.theme_switcher_icon} />
       )}
     </div>
   );

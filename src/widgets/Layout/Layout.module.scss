@@ -7,7 +7,6 @@
 
   display: grid;
   grid-template-rows: min-content min-content min-content;
-  // min-height: 100dvh;
 
   @include responsive(large-desktop) {
     padding: 0 16px;

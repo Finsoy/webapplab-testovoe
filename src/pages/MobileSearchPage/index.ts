@@ -1,0 +1,1 @@
+export { MobileSearchPage } from './MobileSearchPage';
