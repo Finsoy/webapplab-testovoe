@@ -1,1 +1,3 @@
-export { Home } from './Home/Home';
+export { Home } from './Home';
+export { MobileSearchPage } from './MobileSearchPage';
+export { NotFound } from './NotFound';

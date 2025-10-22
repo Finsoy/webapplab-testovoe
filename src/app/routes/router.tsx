@@ -1,5 +1,4 @@
-import { Home } from '@/pages';
-import { MobileSearchPage } from '@/pages/MobileSearchPage';
+import { Home, MobileSearchPage, NotFound } from '@/pages';
 import { Routes } from '@/shared/constants';
 import { Layout, MobileSearchLayout } from '@/widgets/Layout';
 import { createBrowserRouter } from 'react-router';
@@ -11,7 +10,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: '*', element: <div>404</div> },
+      { path: '*', element: <NotFound /> },
     ],
   },
   {
