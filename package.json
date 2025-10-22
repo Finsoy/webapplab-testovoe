@@ -9,13 +9,15 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "mock": "npx json-server --watch ./src/api/db.json --port 3001"
+    "mock": "npx json-server --watch ./src/api/db.json --port 3001",
+    "start": "node server.js"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.3",
     "antd": "^5.27.4",
     "axios": "^1.12.2",
     "classnames": "^2.5.1",
+    "cors": "^2.8.5",
     "html-react-parser": "^5.2.6",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.1.1",
